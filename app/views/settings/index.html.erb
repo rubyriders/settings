@@ -1,0 +1,6 @@
+<h3>Settings<h3>
+<ul>
+  <% @settings.each do |setting|%>
+    <li><%= setting.name %> = <%= setting.value %> <%= link_to 'edit', edit_setting_path(setting) %></li>
+  <%end%>
+</ul>
