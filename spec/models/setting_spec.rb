@@ -49,4 +49,16 @@ describe Setting do
     Setting[:test_setting].should eq(Date.parse('01/01/2012'))
   end
   
+  it "should not convert date to string" do
+    date = Date.today
+    Setting[:test_setting] = date
+    Setting[:test_setting].should eq(date)
+  end
+  
+  it "should not convert array to string" do
+    arr = [1,2,3]
+    Setting[:test_setting] = arr
+    Setting[:test_setting].should eq(arr)
+  end
+  
 end
