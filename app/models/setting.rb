@@ -2,13 +2,13 @@ class Setting < ActiveRecord::Base
   serialize :serialized_value
   
   validates_presence_of :name
-  64356
+  
   def value=(val)
     self.serialized_value = 
                             case val
                               when /^\d*$/
                                 val.to_i
-                              when /^\d*\.\d*$/
+                              when /^\d{1,}\.\d{1,}$/
                                 val.to_f
                               when /^(0[1-9]|[12][0-9]|3[01])[- \/.](0[1-9]|1[012])[- \/.](19|20)\d\d$/
                                 Date.parse(val)
